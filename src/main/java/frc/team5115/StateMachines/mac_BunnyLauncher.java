@@ -12,17 +12,18 @@ public class Launch extends Base {
             case Off:
                 Robot.bunnyLauncher.nolaunch();
                 break;
+            case Input:
+
+                if (Controls.launchbunny()) setState(Extending);
+                else if (Controls.retractbunny()) setState(Retracting);
+                else setState(Off);
+
+                break;
             case Extending:
                 Robot.bunnyLauncher.launch();
-                if (Controls.retractbunny()) {
-                    setState(Retracting);
-                }
                 break;
             case Retracting:
                 Robot.bunnyLauncher.retract();
-                if (Controls.launchbunny()) {
-                    setState(Extending);
-                }
                 break;
         }
     }

@@ -18,7 +18,7 @@ public class Sort extends Base {
             case Stop:
                 Robot.sorter.TurnSorter(0);
                 break;
-            case Sorting:
+            case ColorSet:
                 if (DriverStation.getInstance().getAlliance() == DriverStation.Alliance.Red) {
                     if (color.equals("Red")) {
                         OurColor = true;
@@ -33,7 +33,9 @@ public class Sort extends Base {
                         OurColor = true;
                     }
                 }
-
+                setState(Sorting);
+                break;
+            case Sorting:
                 if (!Robot.sorter.homePosition.get()) {
                     if (OurColor) {
                         Robot.sorter.TurnSorter(Constants.SorterTurnSpeed);

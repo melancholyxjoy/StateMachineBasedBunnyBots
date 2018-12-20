@@ -11,10 +11,13 @@ public class Sift extends Base {
             case Off:
                 Robot.sifter.TurnSifter(0);
                 break;
+            case Input:
+                if (Robot.outtake.state == On) setState(On);
+                else setState(Off);
             case On:
-                if (Robot.outtake.state == 1) {
-                    Robot.sifter.TurnSifter(-Constants.SifterTurnSpeed);
-                }
+
+                if (Robot.outtake.state == 1) Robot.sifter.TurnSifter(-Constants.SifterTurnSpeed);
+
                 break;
         }
     }

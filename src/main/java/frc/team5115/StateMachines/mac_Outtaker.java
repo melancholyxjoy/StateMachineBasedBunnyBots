@@ -12,10 +12,14 @@ public class Outtake extends Base {
             case Off:
                 Robot.outtaker.takeout(0);
                 break;
+            case Input:
+
+                if (Controls.outtake()) setState(On);
+                else setState(Off);
+
+                break;
             case On:
-                if (Controls.outtake()) {
-                    Robot.outtaker.takeout(Constants.OuttakeOnSpeed);
-                }
+                Robot.outtaker.takeout(Constants.OuttakeOnSpeed);
                 break;
             case FullDump:
                 Robot.outtaker.takeout(Constants.FullDump);

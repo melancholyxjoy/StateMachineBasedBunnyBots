@@ -12,17 +12,17 @@ public class Intake extends Base {
             case Off:
                 Robot.intaker.takein(0);
                 break;
+            case Input:
+
+                if (Controls.intakinggrr()) setState(On);
+                else setState(Idle);
+
+                break;
             case Idle:
                 Robot.intaker.takein(Constants.IntakeIDLE);
-                if (Controls.intakinggrr()) {
-                    setState(On);
-                }
                 break;
             case On:
                 Robot.intaker.takein(Constants.IntakeON);
-                if (!Controls.intakinggrr()) {
-                    setState(Idle);
-                }
                 break;
         }
     }
